@@ -89,44 +89,51 @@ def resetSentimentNormalizer():
 while True:
     isTrue, frame = capture.read()
 
-    #frame_resized = rescaleFrame(frame, 0.5)
-    
+    #convert to grayscale
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-
+    #find all faces in the given frame
     faces_rect = haar_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=8)
 
+    #these are use to narrow down the face detection to one face
     start_x = 0
     start_y = 0
     width = 0
     height = 0
 
+    #check if there is even a face present in the frame
     if (len(faces_rect) > 0):
         isFace = True
     else:
         isFace = False
 
+    #initialize the label and default it to neutral(at index of 2)
     label = 2
     confidence = 0.0
 
     if (isFace == True):
+        #iterates through all of the detected faces and picks the closest one based on the size of the rectangle
         for (x,y,w,h) in faces_rect:
-        #cv.rectangle(frame, (x,y), (x+w,y+h), (0, 255, 0), thickness=2)
             if (w>=width):
                 width = w
                 height = h
                 start_x = x
                 start_y = y
+        #draw a rectangle around every detected face
         cv.rectangle(frame, (start_x,start_y), (start_x+width,start_y+height), (0, 255, 0), thickness=1)
         
         faces_roi = gray[start_y:start_y+height, start_x:start_x+width]
         label, confidence = face_recognizer.predict(faces_roi)
         analyzeSentiment(label)
 
-    r = requests.post("http://localhost/sentiment?s=%s&f=%s" % (categories[currentSentiment], isFace))
+    req = requests.post("http://localhost/sentiment?s=%s&f=%s" % (categories[currentSentiment], isFace))
 
+    #Background
     cv.rectangle(frame, (0,0), (180,40), (0,0,0), -1)
+    #Is a face detected label
     cv.putText(frame, f'Face Detected: {isFace}', (6, 12), cv.FONT_HERSHEY_TRIPLEX, 0.4, (255, 255, 255), thickness=1)
+    #The current sentiment of a detected face
     cv.putText(frame, f'Face Sentiment: {categories[currentSentiment]}', (6, 24), cv.FONT_HERSHEY_TRIPLEX, 0.4, (255, 255, 255), thickness=1)
+    #The confidence of that sentiment
     cv.putText(frame, f'Confidence: {int(confidence)}', (6, 36), cv.FONT_HERSHEY_TRIPLEX, 0.4, (255, 255, 255), thickness=1)
 
     cv.imshow('face detect', frame)

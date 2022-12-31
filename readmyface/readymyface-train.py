@@ -12,10 +12,10 @@ labels = []
 
 def create_train():
     print(' ------- Training Set Initialized ------- ')
-    for person in categories:
-        path = os.path.join(DIR, person)
+    for state in categories:
+        path = os.path.join(DIR, state)
         path = path.replace("\\", '/')
-        label = categories.index(person)
+        label = categories.index(state)
 
         for img in os.listdir(path):
             img_path = os.path.join(path, img)
@@ -25,7 +25,7 @@ def create_train():
             gray = cv.cvtColor(img_array, cv.COLOR_BGR2GRAY)
 
             faces_rect = haar_cascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=8)
-            print(f'Labeled {img_path} as {person}')
+            print(f'Labeled {img_path} as {state}')
             for (x,y,w,h) in faces_rect:
                 faces_roi = gray[y:y+h, x:x+w]
                 features.append(faces_roi)
@@ -40,7 +40,6 @@ labels = np.array(labels)
 
 print(' ------- Training Initialized ------- ')
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
-
 face_recognizer.train(features, labels)
 
 print(' ------- Training Completed ------- ')
