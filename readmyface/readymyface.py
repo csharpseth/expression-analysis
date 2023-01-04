@@ -2,24 +2,6 @@ import numpy as np
 import cv2 as cv
 import requests
 
-""" haar_cascade = cv.CascadeClassifier('haar_face.xml')
-
-categories = ['positive', 'negative']
-features = np.load('features.npy', allow_pickle=True)
-labels = np.load('labels.npy', allow_pickle=True)
-
-
-
-for (x,y,w,h) in faces_rect:
-    faces_roi = gray[y:y+h, x:x+h]
-
-    label, confidence = face_recognizer.predict(faces_roi)
-    print(f'Label: {people[label]} with Confidence: {confidence}')
-
-    cv.putText(img, str(people[label]), (10, 10), cv.FONT_HERSHEY_TRIPLEX, 0.4, (0,0,255), 2)
-    cv.rectangle(img, (x,y), (x+w, y+h), (0,255,0), 1)
- """
-
 #Live Feed
 capture = cv.VideoCapture(0)
 
