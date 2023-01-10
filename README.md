@@ -14,6 +14,7 @@ I am currently using OpenCV for the facial detection and recognition. I am also 
 
 ## Screenshots
 ![](https://github.com/csharpseth/opencv-facial-sentiment-analysis/blob/main/media/readmyface.gif)
+![](https://github.com/csharpseth/opencv-facial-sentiment-analysis/blob/main/media/noface.png)
 
 ## References
  - [OpenCV](https://opencv.org/)
