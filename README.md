@@ -14,8 +14,8 @@ I am currently using OpenCV for the facial detection and recognition. I am also 
 
 ## Screenshots
 
-<img src="https://miro.medium.com/max/1100/1*sBZi1B_mHlnegArdRsw4aQ.gif" alt="My Project GIF" width="500" height="600">
-<img src="https://miro.medium.com/max/1100/1*wfOh9gFRTM00hApSEqmRFw.webp" alt="My Project GIF" width="500" height="600">
+<img src="https://miro.medium.com/max/1100/1*sBZi1B_mHlnegArdRsw4aQ.gif" alt="My Project GIF">
+<img src="https://miro.medium.com/max/1100/1*wfOh9gFRTM00hApSEqmRFw.webp" alt="My Project GIF">
 
 ## References
  - [OpenCV](https://opencv.org/)
