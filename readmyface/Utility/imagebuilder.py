@@ -1,3 +1,15 @@
+"""
+This script allows you to take video frames and save them as images for training data
+
+'Iteration' is used as the filename index. I set this up if I take multiple sets of pictures
+(To account for the pictures I've already take)
+
+'label' is exactly how it sounds, it's a label
+
+Ex:
+iteration = 100 && label = 'happy' the output image will be labeled: "happy_100.jpg"
+"""
+
 import cv2 as cv
 
 #Reading Videos
@@ -17,7 +29,7 @@ changeRes(1024, 1024)
 
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 isFace = False
-iteration = 710
+iteration = 1
 label = 'neutral'
 
 while True:
