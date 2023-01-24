@@ -4,7 +4,7 @@
 This application prompts you with a randomly generated social media post, then using a webcam looks at your
 face and determines how you reacted and interacts with the post accordingly.
 
-This is a general overview of the project. If yo uwish to read how I accomplished this project you can check out my article on [Medium](https://medium.com/@csharpseth/my-face-liked-your-post-36af4c545df3).
+This is a general overview of the project. If you wish to read how I accomplished this project you can check out my article on [Medium](https://medium.com/@csharpseth/my-face-liked-your-post-36af4c545df3).
 
 #### Example:
 You are prompted with a post of a cat, but you hate cats, so your demeanor is negative. The Computer Vision recognizes this, dislikes the post, then prompts you with the next post.
