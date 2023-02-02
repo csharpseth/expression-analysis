@@ -134,7 +134,7 @@ while True:
 
     sentiment = determineOveralSentiment(leftLabel, rightLabel, faceLabel)
 
-    req = requests.post("http://localhost/sentiment?s=%s&f=%s" % (sentiment, isFace))
+    #req = requests.post("http://localhost/sentiment?s=%s&f=%s" % (sentiment, isFace))
 
     if(showDebug == True):
         #draw a rectangle around every detected face
